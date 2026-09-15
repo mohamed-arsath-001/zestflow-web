@@ -1,0 +1,58 @@
+{
+  "pipeline_name": "Inbound_Freight_BOL_Extraction_V2",
+  "version": "2.4.0",
+  "document_type": "BillOfLading",
+  "source_system": "EDI_856_Inbound_Stream",
+  "target_erp": "SAP_S4HANA_BAPI",
+  "execution_mode": "DETERMINISTIC_LANGGRAPH",
+  "manifest_metadata": {
+    "bol_number": "BOL-9842109-NA",
+    "carrier_scac": "ODFL",
+    "tracking_id": "TRK-2026-88192",
+    "origin_facility": "FAC-MEMPHIS-04",
+    "destination_hub": "DC-CHICAGO-02",
+    "dock_door_target": "DOCK-14B",
+    "trailer_id": "TR-53891",
+    "seal_number": "SL-99412A",
+    "timestamp": "2026-09-13T10:14:00Z"
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "sku": "SKU-IND-4091",
+      "description": "Hydraulic Actuator Cylinders 24V",
+      "quantity_ordered": 120,
+      "quantity_received": 120,
+      "weight_kg": 1840.5,
+      "unit_price_usd": 245,
+      "inspection_status": "PASS"
+    },
+    {
+      "line_no": 2,
+      "sku": "SKU-IND-7718",
+      "description": "Industrial O-Ring Gasket Seal Kits",
+      "quantity_ordered": 450,
+      "quantity_received": 450,
+      "weight_kg": 112,
+      "unit_price_usd": 18.5,
+      "inspection_status": "PASS"
+    },
+    {
+      "line_no": 3,
+      "sku": "SKU-IND-2034",
+      "description": "Pneumatic Control Solenoid Valves",
+      "quantity_ordered": 80,
+      "quantity_received": 80,
+      "weight_kg": 95.2,
+      "unit_price_usd": 115,
+      "inspection_status": "PASS"
+    }
+  ],
+  "validation_rules": {
+    "schema_model": "Pydantic_Strict_BillOfLading_V2",
+    "two_phase_commit": true,
+    "variance_tolerance_usd": 0,
+    "crypto_hash": "sha256:4f8a29b310e7d98c12a45b6f",
+    "human_review_required": false
+  }
+}

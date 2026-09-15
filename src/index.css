@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --surface-base: #111113;
+  --surface-panel: #18181B;
+  --surface-elevated: #222328;
+  --border-subtle: rgba(244, 241, 234, 0.08);
+  --border-medium: #2A2B30;
+  --border-steel: #4B5563;
+  --text-ivory: #F4F1EA;
+  --text-muted: #9A9892;
+  --text-faint: #6B7280;
+  --accent-amber: #E8663D;
+  --accent-amber-text: #F27A52; /* Calibrated for high-contrast small text & telemetry (7.25:1 AAA vs graphite) */
+  --accent-amber-hover: #D4552C;
+  --accent-amber-dark: #C84E29;
+  --accent-amber-glow: rgba(232, 102, 61, 0.14);
+  --status-moss: #5B7B5B;
+  --status-moss-bg: rgba(91, 123, 91, 0.16);
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Inter", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #111113;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #111113;
+  color: #F4F1EA;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+/* Graphite & Signal Precision Surface */
+.card-graphite {
+  background-color: #18181B;
+  border: 1px solid rgba(244, 241, 234, 0.08);
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.card-graphite:hover {
+  border-color: rgba(242, 122, 82, 0.35);
+  background-color: #1E1F24;
+}
+
+/* Glassmorphism in Graphite */
+.glass-graphite {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(244, 241, 234, 0.08);
+}
+
+/* Industrial Signal Amber Button */
+.btn-signal {
+  background-color: #E8663D;
+  color: #111113;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.25) inset, 0 2px 8px 0 rgba(232, 102, 61, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-signal:hover {
+  background-color: #D4552C;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset, 0 4px 14px 0 rgba(232, 102, 61, 0.35);
+}
+
+.btn-signal:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Minimal subtle graphite scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111113;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2B30;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4B5563;
+}
+
+/* Signal Amber Selection */
+::selection {
+  background: rgba(232, 102, 61, 0.3);
+  color: #F4F1EA;
+}
+
+/* Technical Hairline Grid Pattern */
+.industrial-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(244, 241, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 241, 234, 0.03) 1px, transparent 1px);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
