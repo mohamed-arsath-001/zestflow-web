@@ -5,8 +5,6 @@ import {
   IconHome,
   IconCpu,
   IconBolt,
-  IconCopy,
-  IconCheck,
   IconArrowUp,
 } from "@tabler/icons-react";
 
@@ -21,19 +19,11 @@ interface ActionItem {
 export default function FloatingDock() {
   const mouseX = useMotionValue(Infinity);
   const location = useLocation();
-  const [copied, setCopied] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const triggerToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3200);
-  };
-
-  const handleCopyEndpoint = () => {
-    navigator.clipboard?.writeText("https://api.zestflow.ai/v1/cluster/runtime");
-    setCopied(true);
-    triggerToast("API Endpoint copied to clipboard");
-    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleRunBenchmark = () => {
@@ -52,12 +42,6 @@ export default function FloatingDock() {
       sublabel: "Run Consensus Test",
       icon: IconBolt,
       action: handleRunBenchmark,
-    },
-    {
-      title: "API Spec",
-      sublabel: copied ? "Copied!" : "Copy Endpoint",
-      icon: copied ? IconCheck : IconCopy,
-      action: handleCopyEndpoint,
     },
     {
       title: "Back to Top",

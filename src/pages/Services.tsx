@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ExpandableCards } from "../components/ui/ExpandableCards";
 import { PipelineCalculator } from "../components/ui/PipelineCalculator";
-import { SchemaValidator } from "../components/ui/SchemaValidator";
 import { CodeBlock } from "../components/ui/CodeBlock";
 import { motion } from "framer-motion";
 import {
@@ -156,7 +155,7 @@ export default function Services() {
           Bespoke AI Engineering For Scale-Ready Enterprises
         </h1>
         <p className="mt-4 text-[#9A9892] text-base leading-relaxed">
-          Click any card below to inspect code architecture, expand technical specs, or upload your architecture spec for an automated agent feasibility assessment.
+          Click any card below to inspect code architecture, expand technical specs, and explore implementation details for our production-ready agent services.
         </p>
       </div>
 
@@ -179,11 +178,6 @@ export default function Services() {
       {/* 2. Interactive Operational Feasibility & Pipeline Calculator */}
       <section className="mb-20">
         <PipelineCalculator />
-      </section>
-
-      {/* 2B. Real-Time Schema & Architecture Spec Validator */}
-      <section className="mb-24">
-        <SchemaValidator />
       </section>
 
       {/* 3. Tech Stack Matrix */}
